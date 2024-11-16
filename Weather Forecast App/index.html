@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast App</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('background.jpeg'); /* Background */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      margin: 50px auto;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather Forecast App</h1>
+    <input type="text" id="cityInput" placeholder="Enter City Name">
+    <button onclick="showWeather()">Get Weather</button>
+    <div id="weatherResult" class="result"></div>
+  </div>
+
+  <script>
+    function showWeather() {
+      const city = document.getElementById('cityInput').value.trim();
+      const weatherResult = document.getElementById('weatherResult');
+
+      if (!city) {
+        weatherResult.innerHTML = '<p>Please enter a city name.</p>';
+        return;
+      }
+
+      // Dummy data for testing
+      const dummyData = {
+        name: city,
+        temperature: 25,
+        weather: 'Clear Sky',
+        humidity: 60,
+        windSpeed: 5,
+      };
+
+      weatherResult.innerHTML = `
+        <h3>Weather in ${dummyData.name}</h3>
+        <p><strong>Temperature:</strong> ${dummyData.temperature}°C</p>
+        <p><strong>Weather:</strong> ${dummyData.weather}</p>
+        <p><strong>Humidity:</strong> ${dummyData.humidity}%</p>
+        <p><strong>Wind Speed:</strong> ${dummyData.windSpeed} m/s</p>
+      `;
+    }
+  </script>
+</body>
+</html>
